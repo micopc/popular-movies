@@ -1,0 +1,15 @@
+// tsconfig.json or jsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@api": ["src/api"],
+      "@common": ["src/common"],
+      "@common/*": ["src/common/*"],
+      "@movies": ["src/movies"],
+      "@pages": ["src/pages"],
+      "@ui": ["src/ui"],
+      "@ui/icons": ["src/ui/icons"]
+    }
+  }
+}
