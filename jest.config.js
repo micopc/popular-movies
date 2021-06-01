@@ -1,4 +1,5 @@
 module.exports = {
+  testEnvironment: 'jsdom',
   collectCoverageFrom: [
     '**/*.{js,jsx,ts,tsx}',
     '!**/*.d.ts',
@@ -15,6 +16,13 @@ module.exports = {
     '^.+\\.module\\.(css|sass|scss)$'
   ],
   moduleNameMapper: {
+    '@api': ['<rootDir>/src/api'],
+    '@common': ['<rootDir>/src/common'],
+    '@assets/(.*)': ['<rootDir>/src/assets/$1'],
+    '@movies': ['<rootDir>/src/movies'],
+    '@pages': ['<rootDir>/src/pages'],
+    '@ui/icons': ['<rootDir>/src/ui/icons'],
+    '@ui': ['<rootDir>/src/ui'],
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy'
   }
 }
