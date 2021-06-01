@@ -8,8 +8,4 @@ describe('getYearFromDate', () => {
   test('returns null for invalid dates', () => {
     expect(getYearFromDate('invalid')).toEqual(null)
   })
-
-  test('returns null if undefined is passed', () => {
-    expect(getYearFromDate()).toEqual(null)
-  })
 })

@@ -1,7 +1,13 @@
 import { Link } from '@ui'
 import { imagePathFor } from '@common'
 
-export default function MoviePoster({ id, title, image }) {
+interface MoviePosterProps {
+  id: number
+  title: string
+  image: string
+}
+
+export default function MoviePoster({ id, title, image }: MoviePosterProps) {
   return (
     <Link href={`/movies/${id}`} className="block relative pt-150%">
       <img

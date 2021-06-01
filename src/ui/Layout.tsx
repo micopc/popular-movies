@@ -1,4 +1,10 @@
-export default function Layout({ children }) {
+import { ReactNode } from 'react'
+
+interface LayoutProps {
+  children: ReactNode
+}
+
+export default function Layout({ children }: LayoutProps) {
   return (
     <div className="container mx-auto sm:px-8">
       <main>{children}</main>

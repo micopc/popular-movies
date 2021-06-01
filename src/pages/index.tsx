@@ -1,7 +1,14 @@
-import { getPopularMovies } from '@api'
+import { GetServerSideProps } from 'next'
+import { getPopularMovies, PopularMovie } from '@api'
 import { MoviePoster } from '@movies'
 
-export async function getServerSideProps() {
+interface HomeProps {
+  movies: PopularMovie[]
+  page: number
+  totalPages: number
+}
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   const data = await getPopularMovies()
 
   const { results, page, total_pages } = data
@@ -15,7 +22,7 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Home(props) {
+export default function Home(props: HomeProps) {
   const { movies } = props
 
   return (
@@ -25,7 +32,7 @@ export default function Home(props) {
       </header>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
-        {movies.map((movie) => (
+        {movies.map((movie: any) => (
           <MoviePoster
             key={movie.id}
             id={movie.id}

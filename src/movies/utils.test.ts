@@ -8,12 +8,4 @@ describe('formatMovieDuration', () => {
   test('returns just minutes', () => {
     expect(formatMovieDuration(40)).toEqual('40m')
   })
-
-  test('throws when a non-number is passed', () => {
-    expect(() => formatMovieDuration('invalid')).toThrow()
-  })
-
-  test('returns null when undefined is passed', () => {
-    expect(formatMovieDuration(undefined)).toEqual(null)
-  })
 })

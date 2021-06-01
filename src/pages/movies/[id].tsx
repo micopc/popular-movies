@@ -1,8 +1,16 @@
-import { getMovieDetails } from '@api'
+import { GetServerSideProps } from 'next'
+import { getMovieDetails, Movie } from '@api'
 import { MovieDetails, MovieHero } from '@movies'
 
-export async function getServerSideProps({ params }) {
-  const data = await getMovieDetails(params.id)
+interface MoviePageProps {
+  movie: Movie
+}
+
+export const getServerSideProps: GetServerSideProps<
+  MoviePageProps,
+  { id: string }
+> = async ({ params }) => {
+  const data = await getMovieDetails(params!.id)
 
   return {
     props: {
@@ -11,7 +19,7 @@ export async function getServerSideProps({ params }) {
   }
 }
 
-export default function MoviePage(props) {
+export default function MoviePage(props: MoviePageProps) {
   const { movie } = props
 
   return (

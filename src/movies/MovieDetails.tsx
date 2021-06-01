@@ -2,15 +2,20 @@ import { formatMovieDuration } from './utils'
 import { getYearFromDate } from '@common'
 import { Star } from '@ui/icons'
 
-export default function MovieDetails({
-  title,
-  releaseDate,
-  genres,
-  duration,
-  score,
-  voteCount,
-  synopsis
-}) {
+interface MovieDetailsProps {
+  title: string
+  releaseDate: string
+  genres: Array<{ id: number; name: string }>
+  duration: number
+  score: number
+  voteCount: number
+  synopsis: string
+}
+
+export default function MovieDetails(props: MovieDetailsProps) {
+  const { title, releaseDate, genres, duration, score, voteCount, synopsis } =
+    props
+
   const releaseYear = getYearFromDate(releaseDate)
 
   return (

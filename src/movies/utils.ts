@@ -1,4 +1,4 @@
-export function formatMovieDuration(durationInMinutes) {
+export function formatMovieDuration(durationInMinutes: number) {
   if (!durationInMinutes) {
     return null
   }

@@ -5,11 +5,11 @@ module.exports = {
     '!**/*.d.ts',
     '!**/node_modules/**'
   ],
-  setupFilesAfterEnv: ['<rootDir>/src/test/setupTests.js'],
+  setupFilesAfterEnv: ['<rootDir>/src/test/setupTests.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
-    '^.+\\.css$': '<rootDir>/src/test/cssTransform.js'
+    '^.+\\.css$': '<rootDir>/src/test/cssTransform.ts'
   },
   transformIgnorePatterns: [
     '/node_modules/',
