@@ -30,7 +30,7 @@ export default function MovieDetails(props: MovieDetailsProps) {
       </div>
 
       <div className="mb-6">
-        <div className="flex">
+        <div className="flex items-center">
           <Star className="w-5 text-yellow-300 mr-1" />
           <div className="text-sm">
             {score} <span className="text-gray-500">({voteCount} votes)</span>
