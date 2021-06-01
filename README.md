@@ -1,34 +1,96 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Popular Movies App
 
-## Getting Started
+App to see the most popular movies. It retrieves information from The Movie DB
+API [themoviedb.org](https://themoviedb.org).
 
-First, run the development server:
+To run this project, you'll need to get an API KEY here:
+https://www.themoviedb.org/documentation/api
+
+## Installation
+
+Be sure to have node installed. If you're using nvm you can just run `nvm use`
+and the proper version will be selected. Otherwise install the latest version of
+node (16).
+
+Now you can clone the repo:
+
+```bash
+git clone https://github.com/micopc/popular-movies
+cd popular-movies
+```
+
+And then install all dependencies:
+
+```bash
+npm install
+```
+
+This will also creare a git commit hook to automatically format the code.
+
+## Local Development
+
+You'll need to create an `.env.local` file in the root of your project for all
+the enviroment variables. The file should look like this:
+
+```
+THE_MOVIE_DB_API_KEY=
+```
+
+Be sure to paste your API KEY right next to the env variable.
+
+To run this application locally, run:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will start on http://localhost:3000
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Testing
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+We use jest for testing. In addition, we also use react-testing-library for all
+react tests. To run tests:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+npm run test
+```
 
-## Learn More
+Or to run jest in watch mode and have your tests ran again automatically when
+you make changes:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run test:watch
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Formatting
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This project uses prettier to format the code. Be sure to install the plugin for
+your preferred editor. Prettier will also run on commits thanks to husku and
+lint-staged. You can optionally run the formatter yourself with:
 
-## Deploy on Vercel
+```bash
+npm run format
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Linting
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project uses eslint with the default create-react-app configuration plus
+eslint-config-prettier to disable all the rules that prettier already takes care
+of. To run it:
+
+```
+npm run lint
+```
+
+## Deployment
+
+This project is hosted on vercel. To deploy, just push your changes. Whenever
+you deploy, both linting and testing are done. If they fail, the deploy won't
+succeed.
+
+You can also run a "production" version of the app locally with:
+
+```bash
+npm run build
+npm run start
+```
